@@ -38,7 +38,7 @@ A GitHub App fixes it. Its pull requests are authored by the app, its tokens las
 an hour and are scoped to the installation, and its pushes still start workflow
 runs — which `GITHUB_TOKEN` does not.
 
-- variable `FIDDLE_APP_ID`, secret `FIDDLE_APP_PRIVATE_KEY`
+- secrets `FIDDLE_APP_ID` and `FIDDLE_APP_PRIVATE_KEY`
 - permissions: Contents write, Pull requests write, Issues write, Checks read,
   Metadata read
 - the workflow mints a token per run and falls back to `FIDDLE_GITHUB_TOKEN`

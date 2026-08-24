@@ -26,3 +26,10 @@ before `workflow_run` and `issue_comment` will fire at all.
   `GITHUB_TOKEN`: GitHub suppresses workflow events from that token, so a pull
   request fiddle pushed would start no CI run and the feedback loop would have
   nothing to read.
+
+## The policy gate
+
+`policy.sh` fails only when `FIDDLE_TEST_POLICY_GATE` is set in the workflow. That
+is how the direction path is exercised: a check fiddle cannot pass, waived by a
+maintainer's review. Leave it unarmed for ordinary runs, so a green tree means
+something.

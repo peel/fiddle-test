@@ -9,7 +9,6 @@ dir = ".fiddle/reports"
 
 [agent]
 model = "claude-opus-4-8"
-max_capability_attempts = 8
 base_url = "https://litellm.firn.snplow.net/v1"
 api_key = { env = "LITELLM_API_KEY" }
 

@@ -56,6 +56,11 @@ args = ["build", "-t", "fiddle-test:scan", "."]
 success = "exit-zero"
 
 [[workspace.checks]]
+program = "./policy.sh"
+args = []
+success = "exit-zero"
+
+[[workspace.checks]]
 program = "./scan.sh"
 args = []
 success = "artefact-written"

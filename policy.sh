@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "release policy: a dependency change needs sign-off from a maintainer," >&2
+echo "recorded outside this repository. Nothing in the tree can satisfy it." >&2
+exit 1

@@ -69,3 +69,8 @@ success = "artefact-written"
 program = "go"
 args = []
 extend = "arguments"
+
+[[workspace.commands]]
+program = "grep"
+args = []
+extend = "arguments"

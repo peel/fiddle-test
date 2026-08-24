@@ -1,0 +1,66 @@
+[project]
+name = "fiddle-test"
+
+[stub]
+root = ".fiddle/state"
+
+[report]
+dir = ".fiddle/reports"
+
+[agent]
+model = "claude-opus-4-8"
+base_url = "https://litellm.firn.snplow.net/v1"
+api_key = { env = "LITELLM_API_KEY" }
+
+[github]
+repo = "peel/fiddle-test"
+base = "main"
+token = { env = "FIDDLE_GITHUB_TOKEN" }
+
+[scanner]
+cli = { program = "./scan.sh", args = [] }
+timeout = "300s"
+
+[orchestration.cve]
+image = "fiddle-test:scan"
+title = "fix(security): remediate {advisories} advisory in {project}"
+
+[workspace]
+root = "/tmp/fiddle-workspaces"
+fixture = "."
+command_timeout = "600s"
+
+[[workspace.checks]]
+program = "go"
+args = ["build", "./..."]
+success = "exit-zero"
+
+[[workspace.checks]]
+program = "go"
+args = ["vet", "./..."]
+success = "exit-zero"
+
+[[workspace.checks]]
+program = "go"
+args = ["test", "./...", "-count=1"]
+success = "exit-zero"
+
+[[workspace.checks]]
+program = "go"
+args = ["fmt", "./..."]
+success = "exit-zero-and-no-output"
+
+[[workspace.checks]]
+program = "docker"
+args = ["build", "-t", "fiddle-test:scan", "."]
+success = "exit-zero"
+
+[[workspace.checks]]
+program = "./scan.sh"
+args = []
+success = "artefact-written"
+
+[[workspace.commands]]
+program = "go"
+args = []
+extend = "arguments"

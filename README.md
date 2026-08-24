@@ -2,8 +2,8 @@
 
 A testbed for fiddle's CVE remediation loop.
 
-It carries one real advisory: `github.com/golang-jwt/jwt/v4 v4.5.0` holds
-CVE-2025-30204, fixed in v4.5.2. `main.go` signs and parses a token, so the
+It carries one real advisory: `github.com/golang-jwt/jwt/v4 v4.5.2` holds
+the fix for CVE-2025-30204, which affected versions before v4.5.2. `main.go` signs and parses a token, so the
 requirement reaches the built binary and the scanner can see it.
 
 `scan.sh` stands in for a container scanner. It reads `/modules.txt` out of the

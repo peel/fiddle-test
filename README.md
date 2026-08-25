@@ -2,7 +2,7 @@
 
 A testbed for fiddle's CVE remediation loop.
 
-It carries one real advisory: `github.com/golang-jwt/jwt/v4 v4.5.0` holds
+It carried one real advisory: `github.com/golang-jwt/jwt/v4 v4.5.0` held
 CVE-2025-30204, fixed in v4.5.2. `main.go` signs and parses a token, so the
 requirement reaches the built binary and the scanner can see it.
 
